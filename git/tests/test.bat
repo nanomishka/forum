@@ -1,0 +1,1 @@
+start "d:\study\tp\bd\git\tests" python func_test.py -l --address=127.0.0.1:8080

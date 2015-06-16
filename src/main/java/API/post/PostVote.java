@@ -50,7 +50,7 @@ public class PostVote extends HttpServlet {
                             !jsonObject.getString("vote").equals("-1")) throw new SQLException();
 
                     String sqlQuery = "INSERT INTO postlikes VALUE (null,"+post+","+tvote+")";
-                    System.out.println(sqlQuery);
+                    //System.out.println(sqlQuery);
                     myStmt.executeUpdate(sqlQuery);
 
                     sqlQuery =
@@ -59,7 +59,7 @@ public class PostVote extends HttpServlet {
                                     "JOIN users u ON p.user=u.id " +
                                     "JOIN forums f ON p.forum=f.id " +
                                     "WHERE p.id="+jsonObject.getString("post");
-                    System.out.println(sqlQuery);
+                    //System.out.println(sqlQuery);
                     myRes = myStmt.executeQuery(sqlQuery);
                     if (!myRes.first()) throw new SQLException("Result is null");
                     jsonResponse.put("code", 0);

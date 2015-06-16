@@ -50,7 +50,7 @@ public class PostList extends HttpServlet {
                     if (since != null) sqlQuery += " and p.date>='"+since+"' ";
                     sqlQuery += " GROUP BY p.date " + (order != null && order.equals("asc")?"ASC":"DESC");
                     if (limit != null) sqlQuery += " LIMIT " + limit;
-                    System.out.println(sqlQuery);
+                    //System.out.println(sqlQuery);
                     Statement myStmt = myConn.createStatement();
                     ResultSet myRes = myStmt.executeQuery(sqlQuery);
                     jsonResponse.put("code", 0);

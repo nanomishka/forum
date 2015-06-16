@@ -62,6 +62,7 @@ public class UserCreate extends HttpServlet {
             } catch (JSONException ex) {};
 
             System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
         }
 
         response.getWriter().println(jsonResponse);

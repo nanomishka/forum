@@ -51,7 +51,7 @@ public class PostUpdate extends HttpServlet {
                             " message = '"+jsonObject.getString("message")+"',"+
                             " WHERE id = '"+jsonObject.getString("post")+"'";
 
-                    System.out.println(sqlQuery);
+                    //System.out.println(sqlQuery);
                     myStmt.executeUpdate(sqlQuery);
 
                     sqlQuery =
@@ -60,7 +60,7 @@ public class PostUpdate extends HttpServlet {
                                     "JOIN users u ON p.user=u.id " +
                                     "JOIN forums f ON p.forum=f.id " +
                                     "WHERE p.id="+jsonObject.getString("post");
-                    System.out.println(sqlQuery);
+                    //System.out.println(sqlQuery);
                     myRes = myStmt.executeQuery(sqlQuery);
                     if (!myRes.first()) throw new SQLException("Result is null");
                     jsonResponse.put("code", 0);

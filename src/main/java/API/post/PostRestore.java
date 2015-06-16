@@ -46,7 +46,7 @@ public class PostRestore extends HttpServlet {
                     if (!myRes.first()) throw new SQLException("Result is null");
 
                     String sqlQuery = "UPDATE posts SET isDeleted=false WHERE id="+jsonObject.getString("post");
-                    System.out.println(sqlQuery);
+                    //System.out.println(sqlQuery);
                     myStmt.executeUpdate(sqlQuery);
                     myStmt.close();
 

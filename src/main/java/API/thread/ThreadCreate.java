@@ -19,6 +19,7 @@ public class ThreadCreate extends HttpServlet {
 
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(this.getClass());
         response.setContentType("application/json;charset=utf-8");
         JSONObject jsonResponse = new JSONObject();
         JSONObject jsonData = GETdata.getInstance().getData(request);

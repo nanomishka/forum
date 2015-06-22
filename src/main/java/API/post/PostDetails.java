@@ -18,11 +18,10 @@ import java.util.Map;
 public class PostDetails extends HttpServlet {
     private Connection myConn;
     public PostDetails(Connection myConnect) { myConn = myConnect; }
-    static int k = 1;
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("POST DETAILS " + k++);
+        System.out.println(this.getClass());
         response.setContentType("application/json;charset=utf-8");
         JSONObject jsonResponse = new JSONObject();
         String id = request.getParameter("post");
@@ -56,9 +55,8 @@ public class PostDetails extends HttpServlet {
                 }
             } catch (JSONException ex) {};
 
-            //System.out.println("Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
         response.getWriter().println(jsonResponse);
-        System.gc();
     }
 }

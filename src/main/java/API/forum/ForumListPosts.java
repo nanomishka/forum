@@ -27,6 +27,7 @@ public class ForumListPosts extends HttpServlet {
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(this.getClass());
         response.setContentType("application/json;charset=utf-8");
         JSONObject jsonResponse = new JSONObject();
         String short_name = request.getParameter("forum");

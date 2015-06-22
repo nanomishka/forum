@@ -47,7 +47,7 @@ public class User {
 
     public User(Connection myConn, String email) {
         try {
-            PreparedStatement myStmt = myConn.prepareStatement("SELECT * FROM users WHERE email = ? ;");
+            PreparedStatement myStmt = myConn.prepareStatement("SELECT * FROM users WHERE email = ?");
             myStmt.setString(1, email);
             ResultSet myRes = myStmt.executeQuery();
 
@@ -81,7 +81,7 @@ public class User {
             myRes.close();
             myStmt.close();
 
-        } catch (SQLException e) {}
+        } catch (SQLException | NullPointerException e) {}
     }
 
     public User(Connection myConn, int uID) {

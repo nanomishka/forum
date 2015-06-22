@@ -18,7 +18,7 @@ public class ThreadDetails extends HttpServlet {
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
-        //System.out.println("Query: Thread details");
+        System.out.println(this.getClass());
         response.setContentType("application/json;charset=utf-8");
         JSONObject jsonResponse = new JSONObject();
         String id = request.getParameter("thread");

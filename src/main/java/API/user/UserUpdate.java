@@ -17,6 +17,7 @@ public class UserUpdate extends HttpServlet {
 
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(this.getClass());
         response.setContentType("application/json;charset=utf-8");
         JSONObject jsonResponse = new JSONObject();
         JSONObject jsonData = GETdata.getInstance().getData(request);
@@ -30,7 +31,7 @@ public class UserUpdate extends HttpServlet {
             myStmt.close();
 
             jsonResponse.put("code", 0);
-            jsonResponse.put("response", new User(myConn, jsonData.getString("email")).getDetails());
+            jsonResponse.put("response", new User(myConn, jsonData.getString("user")).getDetails());
         } catch (JSONException | SQLException e) {
             try {
                 if (e instanceof SQLException) {

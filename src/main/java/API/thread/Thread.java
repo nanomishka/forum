@@ -49,13 +49,10 @@ public class Thread {
     public Thread(Connection myConn, int tId) throws SQLException {
         PreparedStatement myStmt = myConn.prepareStatement(
                 "SELECT t.id, t.forum, title, t.isClosed, t.isDeleted, t.date, t.message, t.user, slug, " +
-                        "short_name, email, COALESCE(count(distinct p.id),0) as posts," +
-                        "COALESCE(count( distinct th.id),0) as points," +
-                        "COALESCE(sum(th.tlike),0) as likes " +
+                        "short_name, email, COALESCE(count(distinct p.id),0) as posts "+
                         "FROM threads t " +
                         "JOIN  forums f on t.forum = f.id " +
                         "JOIN  users u on t.user = u.id " +
-                        "LEFT JOIN threadlikes th ON th.thread = t.id " +
                         "LEFT JOIN posts p ON p.thread=t.id and p.isDeleted != true " +
                         "WHERE t.id = ? GROUP by t.id;");
         myStmt.setInt(1, tId);
